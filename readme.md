@@ -26,13 +26,32 @@
  
  ### 2.การสมัคร Domain Name และการทำ SSL (SHA256)
  #### สมัคร Domin Name 
- 1.เข้าไปที่ www.namecheap.com ทำการสมัครสมาชิก กรอกรายละเอียด
- 2.ทำการตั้งชื่อ Domain Name ที่ต้องการ และผูกบัตรเครดิต ทำการชำระเงิน 
+ * เข้าไปที่ www.namecheap.com ทำการสมัครสมาชิก กรอกรายละเอียด
+ * ทำการตั้งชื่อ Domain Name ที่ต้องการ และผูกบัตรเครดิต ทำการชำระเงิน 
  
  ![name](https://user-images.githubusercontent.com/30243550/29308372-e34ee008-81cf-11e7-822f-0fa28c5b289d.jpg)
  
- 3.จากนั้นไปที่ Account -> Domain list จากนั้นกด manage ที่โดเมน -> Advanced DNS ที่ A record ป้อน IP SERVER ของเรา 
+ * จากนั้นไปที่ Account -> Domain list จากนั้นกด manage ที่โดเมน -> Advanced DNS ที่ A record ป้อน IP SERVER ของเรา 
  และ URL Reqiur ใส่ http:// ตามด้วยโดเมน
+ 
+ #### ส่วนของ SERVER 
+ * ไปที่ cloud.google.com ทำการ log in เข้าไปที่ server 
+ * ติดตั้ง SSL Certificate โดยใช้คำสั่ง ดังต่อไปนี้
+ 
+*********************************************************************************************
+
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install python-certbot-apache 
+$ sudo certbot --apache
+$ sudo certbot --apache certonly
+$ sudo certbot renew --dry-run
+
+
+*********************************************************************************************
+ 
  
  
  
